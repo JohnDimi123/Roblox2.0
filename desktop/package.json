@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Roblox 2.0 desktop client (Electron shell + bundled platform server).",
   "main": "main.js",
+  "author": {
+    "name": "Roblox 2.0",
+    "email": "support@roblox2.local"
+  },
+  "homepage": "https://github.com/JohnDimi123/Roblox2.0",
   "scripts": {
     "start": "electron .",
     "vendor": "node vendor.js",

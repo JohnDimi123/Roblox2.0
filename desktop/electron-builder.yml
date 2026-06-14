@@ -40,4 +40,5 @@ linux:
     - AppImage
     - deb
   category: Game
+  maintainer: Roblox 2.0 <support@roblox2.local>
   artifactName: "Roblox2.0-${version}.${ext}"
