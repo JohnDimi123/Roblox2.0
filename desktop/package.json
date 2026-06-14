@@ -8,13 +8,17 @@
     "email": "support@roblox2.local"
   },
   "homepage": "https://github.com/JohnDimi123/Roblox2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JohnDimi123/Roblox2.0.git"
+  },
   "scripts": {
     "start": "electron .",
     "vendor": "node vendor.js",
-    "dist": "electron-builder",
-    "dist:win": "electron-builder --win",
-    "dist:mac": "electron-builder --mac",
-    "dist:linux": "electron-builder --linux"
+    "dist": "electron-builder --publish never",
+    "dist:win": "electron-builder --win --publish never",
+    "dist:mac": "electron-builder --mac --publish never",
+    "dist:linux": "electron-builder --linux --publish never"
   },
   "devDependencies": {
     "electron": "^31.0.0",
