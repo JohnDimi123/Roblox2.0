@@ -1,0 +1,13 @@
+{
+  "name": "roblox2-server",
+  "version": "1.0.0",
+  "description": "Roblox 2.0 platform server: REST API, realtime multiplayer, persistence.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

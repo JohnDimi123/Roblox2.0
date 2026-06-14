@@ -1,0 +1,22 @@
+{
+  "name": "roblox2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Roblox 2.0 — a standalone game platform: 3D engine, accounts, multiplayer, game studio, social.",
+  "workspaces": [
+    "server"
+  ],
+  "scripts": {
+    "start": "node server/src/index.js",
+    "server": "node server/src/index.js",
+    "dev": "node server/src/index.js",
+    "desktop": "cd desktop && npm install && npm start",
+    "dist": "cd desktop && npm install && npm run dist",
+    "dist:win": "cd desktop && npm install && npm run dist:win",
+    "dist:mac": "cd desktop && npm install && npm run dist:mac",
+    "dist:linux": "cd desktop && npm install && npm run dist:linux"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

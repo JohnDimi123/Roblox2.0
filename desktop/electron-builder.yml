@@ -1,0 +1,43 @@
+appId: com.roblox2.platform
+productName: Roblox 2.0
+copyright: Roblox 2.0
+directories:
+  output: ../dist
+  buildResources: build
+# Bundle the whole platform (server + client) alongside the Electron shell.
+extraResources:
+  - from: ../server
+    to: ../server
+    filter:
+      - "**/*"
+      - "!node_modules/.cache/**"
+  - from: ../client
+    to: ../client
+    filter:
+      - "**/*"
+files:
+  - "main.js"
+  - "preload.js"
+  - "package.json"
+win:
+  target:
+    - nsis
+  artifactName: "Roblox2.0-Setup-${version}.${ext}"
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Roblox 2.0
+mac:
+  target:
+    - dmg
+  category: public.app-category.games
+  artifactName: "Roblox2.0-${version}.${ext}"
+linux:
+  target:
+    - AppImage
+    - deb
+  category: Game
+  artifactName: "Roblox2.0-${version}.${ext}"
