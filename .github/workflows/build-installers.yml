@@ -9,6 +9,9 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: write
+
 jobs:
   build:
     strategy:
@@ -59,9 +62,8 @@ jobs:
           if-no-files-found: ignore
 
   release:
-    # When a tag is pushed, attach all installers to a GitHub Release.
+    # Attach all installers to a GitHub Release (downloadable from github.com).
     needs: build
-    if: startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
@@ -69,5 +71,11 @@ jobs:
           path: artifacts
       - uses: softprops/action-gh-release@v2
         with:
+          tag_name: v1.0.0
+          name: Roblox 2.0 v1.0.0
+          body: |
+            Roblox 2.0 installers — pick your platform:
+            • Windows: Roblox2.0-Setup-1.0.0.exe
+            • macOS: Roblox2.0-1.0.0.dmg
+            • Linux: Roblox2.0-1.0.0.AppImage / .deb
           files: artifacts/**/*
-          generate_release_notes: true
