@@ -4,15 +4,16 @@ copyright: Roblox 2.0
 directories:
   output: ../dist
   buildResources: build
-# Bundle the whole platform (server + client) alongside the Electron shell.
+# Bundle the whole platform (server + client) into the app's resources dir,
+# so they resolve at resources/server and resources/client (see main.js).
 extraResources:
   - from: ../server
-    to: ../server
+    to: server
     filter:
       - "**/*"
       - "!node_modules/.cache/**"
   - from: ../client
-    to: ../client
+    to: client
     filter:
       - "**/*"
 files:

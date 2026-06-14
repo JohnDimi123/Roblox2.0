@@ -48,6 +48,12 @@ function createWindow() {
     webPreferences: { contextIsolation: true, nodeIntegration: false }
   });
   win.loadURL(`http://localhost:${PORT}`);
+  // If the server is still warming up, the first load can fail with
+  // ERR_CONNECTION_REFUSED. Retry instead of leaving a blank window.
+  win.webContents.on('did-fail-load', (_e, errorCode) => {
+    if (errorCode === -3) return; // aborted (normal during navigation)
+    setTimeout(() => { if (win && !win.isDestroyed()) win.loadURL(`http://localhost:${PORT}`); }, 600);
+  });
   // open external links in the system browser
   win.webContents.setWindowOpenHandler(({ url }) => { shell.openExternal(url); return { action: 'deny' }; });
 }
